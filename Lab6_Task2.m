@@ -23,6 +23,7 @@ t_m4 = X.Var1; V1_m4 = X.Var2; Vout_m4 = X.Var4;
 
 % Task 3
 
+% High Range
 [f_h,FRF_h] = FRFSpectrum(t_h,V1_h,Vout_h,'false',175);  % function outputs FRF as complex numbers forand frequencies for those outputs
 mag_h = abs(FRF_h);  MdB_h = 20*log(mag_h); % use FRF output to find magnitude in dB
 phase_h = unwrap(angle(FRF_h))*180/pi; % find angle in radians
@@ -35,6 +36,7 @@ hold on
 grid on
 xlabel('Frequency (rad/s)')
 ylabel('Magnitude (dB)')
+title('High Range')
 
 subplot(212)
 semilogx(f_h,phase_h)     %  Bode phase plot
@@ -42,4 +44,53 @@ hold on
 grid on
 xlabel('Frequency (rad/s)')
 ylabel('Phase (deg)')	
+
+
+% Low Range
+[f_h,FRF_h] = FRFSpectrum(t_l,V1_l,Vout_l,'false',175);  % function outputs FRF as complex numbers forand frequencies for those outputs
+mag_h = abs(FRF_h);  MdB_h = 20*log(mag_h); % use FRF output to find magnitude in dB
+phase_h = unwrap(angle(FRF_h))*180/pi; % find angle in radians
+
+figure
+set(gcf,'Position',[50 50 1300 750])
+set(gcf, 'color', 'w')
+subplot(211)             %  Create a subplot figure
+semilogx(f_h,MdB_h)          %  Bode magnitude plot
+hold on
+grid on
+xlabel('Frequency (rad/s)')
+ylabel('Magnitude (dB)')
+title('Low Range')
+
+subplot(212)
+semilogx(f_h,phase_h)     %  Bode phase plot
+hold on
+grid on
+xlabel('Frequency (rad/s)')
+ylabel('Phase (deg)')	
+
+
+% Mid Range 2
+[f_h,FRF_h] = FRFSpectrum(t_m2,V1_m2,Vout_m2,'false',175);  % function outputs FRF as complex numbers forand frequencies for those outputs
+mag_h = abs(FRF_h);  MdB_h = 20*log(mag_h); % use FRF output to find magnitude in dB
+phase_h = unwrap(angle(FRF_h))*180/pi; % find angle in radians
+
+figure
+set(gcf,'Position',[50 50 1300 750])
+set(gcf, 'color', 'w')
+subplot(211)             %  Create a subplot figure
+semilogx(f_h,MdB_h)          %  Bode magnitude plot
+hold on
+grid on
+xlabel('Frequency (rad/s)')
+ylabel('Magnitude (dB)')
+title('Mid Range 2')
+
+subplot(212)
+semilogx(f_h,phase_h)     %  Bode phase plot
+hold on
+grid on
+xlabel('Frequency (rad/s)')
+ylabel('Phase (deg)')	
+
 
