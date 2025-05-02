@@ -24,3 +24,4 @@ t_m4 = X.Var1; V1_m4 = X.Var2; Vout_m4 = X.Var4;
 % Task 3
 
 [f_h,FRF_h] = FRFSpectrum(t_h,V1_h,Vout_h,'true',100);
+
