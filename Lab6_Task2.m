@@ -24,7 +24,8 @@ t_m4 = X.Var1; V1_m4 = X.Var2; Vout_m4 = X.Var4;
 % Task 3
 
 [f_h,FRF_h] = FRFSpectrum(t_h,V1_h,Vout_h,'false',100);  % function outputs FRF as complex numbers forand frequencies for those outputs
-mag_h = abs(FRF_h);  MdB_h = 20*log(mag_h); % use FRF output to find magnitude in dB
+mag_h = abs(FRF_h);
+MdB_h = 20*log(mag_h); % use FRF output to find magnitude in dB
 phase_h = unwrap(angle(FRF_h))*180/pi; % find angle in radians
 
 set(gcf,'Position',[50 50 1300 750])
