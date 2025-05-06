@@ -21,6 +21,23 @@ t_m3 = X.Var1; V1_m3 = X.Var2; Vout_m3 = X.Var4;
 X = readtable('WahMid4.csv','NumHeaderLines', 4);
 t_m4 = X.Var1; V1_m4 = X.Var2; Vout_m4 = X.Var4;
 
+deltaV = t_m1(2) - t_m1(1); % time step
+fsV = 1/deltaV; % sample rate
+NEndV = round(fsV);     % ending sample
+t_m1plot = t_m1; V1_m1plot = V1_m1; Vout_m1plot = Vout_l;
+t_m1plot(NEndV+1:end) = []; V1_m1plot(NEndV+1:end) = []; Vout_m1plot(NEndV+1:end) = [];
+V1_m1plot = V1_m1plot - mean(V1_m1plot); Vout_m1plot = Vout_m1plot - mean(Vout_m1plot);
+
+figure
+plot(t_m1plot, V1_m1plot)
+hold on
+plot(t_m1plot, Vout_m1plot)
+xlabel('Time (s)')
+ylabel('Voltage (V)')
+title('Input vs Output Voltage for WahMid')
+legend('V1', 'Vout')
+
+
 %% Task 3
 
 % High Range
