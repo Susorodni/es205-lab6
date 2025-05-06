@@ -24,7 +24,7 @@ t_m4 = X.Var1; V1_m4 = X.Var2; Vout_m4 = X.Var4;
 %% Task 3
 
 % High Range
-[f_h,FRF_h] = FRFSpectrum(t_h,V1_h,Vout_h,'false',175);  % function outputs FRF as complex numbers forand frequencies for those outputs
+[f_h_1,FRF_h] = FRFSpectrum(t_h,V1_h,Vout_h,'false',175);  % function outputs FRF as complex numbers forand frequencies for those outputs
 mag_h = abs(FRF_h);  MdB_h = 20*log(mag_h); % use FRF output to find magnitude in dB
 
 figure
@@ -93,6 +93,25 @@ grid on
 xlabel('Frequency (Hz)')
 ylabel('Magnitude (dB)')
 
+% %%
+% % %Lab6_task4
+% 
+% w_1 = f_h_1*(2*pi);  %  Define the frequency range
+% w_2 = f_h_2*(2*pi);
+% w_3 = f_h_3*(2*pi);
+% 
+% s_1 = 1j*w_1;
+% s_2 = 1j*w_2;
+% s_3 = 1j*w_3;
+% 
+% 
+% R = 80e3;
+% C = 10e-9;
+% 
+% Giw_1 = -C*R*(Rp+100)*s_1./( (C^2)*(R^2)*(Rp+100)*s_1.^2 + C*R*(Rp+100)*s_1 +(R+Rp+100)/2 );       
+% Giw_2 = -C*R*(Rp+100)*s_2./( (C^2)*(R^2)*(Rp+100)*s_2.^2 + C*R*(Rp+100)*s_2 +(R+Rp+100)/2 );       
+% Giw_3 = -C*R*(Rp+100)*s_3./( (C^2)*(R^2)*(Rp+100)*s_3.^2 + C*R*(Rp+100)*s_3 +(R+Rp+100)/2 );       
+% 
 
 
 Rp_l = fminsearch(@(Rp) Error_Mag(s_l,Rp,mag_l,C,R),Rp_guess);

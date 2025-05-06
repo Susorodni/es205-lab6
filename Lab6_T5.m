@@ -13,7 +13,7 @@ phase_h = unwrap(angle(FRF_h))*180/pi; % find angle in radians
 set(gcf,'Position',[50 50 1300 750])
 set(gcf, 'color', 'w')
 subplot(211)             %  Create a subplot figure
-semilogx(f_h_1*2*pi,MdB_h)          %  Bode magnitude plot
+semilogx(f_h_1,MdB_h)          %  Bode magnitude plot
 hold on
 grid on
 xlabel('Frequency (rad/s)')
